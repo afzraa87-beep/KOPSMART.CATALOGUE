@@ -1,11 +1,11 @@
-// DARK MODE TOGGLE
+// DARK MODE
 const toggle = document.getElementById('darkModeToggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     toggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
 });
 
-// KERANJANG
+// CART SYSTEM
 let cartCount = 0;
 let cartTotal = 0;
 
@@ -15,7 +15,7 @@ const cartTotalDisplay = document.getElementById('cartTotal');
 // ambil semua tombol beli
 const buyButtons = document.querySelectorAll('.btn-buy');
 
-// event pada setiap tombol
+// event: tambah ke keranjang
 buyButtons.forEach((btn) => {
     btn.addEventListener('click', function() {
         const priceText = this.previousElementSibling.textContent.replace(/[^\d]/g, '');
