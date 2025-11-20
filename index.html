@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOPSMART CATALOGUE</title>
-
+    <title>Aplikasi KeuanganKu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,71 +14,100 @@
 
     <!-- NAVBAR -->
     <header class="navbar">
-        <h1 class="logo">Koperasi SMA Negeri 1 Rengel</h1>
+        <h1 class="logo">FinKu</h1>
         <nav>
-            <a href="#">Beranda</a>
-            <a href="#produk">Produk</a>
-            <a href="#kontak">Kontak</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#transaksi">Transaksi</a>
+            <a href="#budgeting">Budgeting</a>
+            <a href="#nabung">Nabung</a>
         </nav>
-
-        <!-- DARK MODE BUTTON -->
-        <button id="darkModeToggle" class="dark-toggle">🌙</button>
     </header>
 
-    <!-- CART DISPLAY -->
-    <div class="cart-display" id="cartDisplay">
-        🛒 Keranjang: <span id="cartCount">0</span> item — 
-        <span id="cartTotal">Rp 0</span>
-    </div>
-
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-text">
-            <h2>Selamat Datang di KOPSMART</h2>
-            <p>Temukan produk terbaik dengan kualitas terjamin langsung dari penjual.</p>
-            <a href="#produk" class="btn-primary">Lihat Produk</a>
+            <h2>Kelola Keuanganmu Dengan Mudah</h2>
+            <p>Pencatatan harian, budgeting pintar, dan fitur nabung dalam satu aplikasi.</p>
+            <a href="#dashboard" class="btn-primary">Mulai Sekarang</a>
         </div>
     </section>
 
-    <!-- PRODUK -->
-    <section id="produk" class="product-section">
-        <h2 class="section-title">Daftar Produk</h2>
+    <!-- DASHBOARD -->
+    <section class="dashboard" id="dashboard">
+        <h2 class="section-title">Dashboard Keuangan</h2>
 
-        <div class="product-grid">
-            <!-- KARTU PRODUK 1 -->
-            <div class="product-card">
-                <img src="kaos kaki1.jpg" alt="Produk 1">
-                <h3>Kaos Kaki</h3>
-                <p class="price">Rp 17.000</p>
-                <button class="btn-buy">Beli Sekarang</button>
+        <div class="dashboard-grid">
+            <div class="box saldo">
+                <h3>Total Saldo</h3>
+                <p id="totalSaldo">Rp 0</p>
             </div>
 
-            <!-- KARTU PRODUK 2 -->
-            <div class="product-card">
-                <img src="img/produk2.jpg" alt="Produk 2">
-                <h3>Kaos Kaki</h3>
-                <p class="price">Rp 150.000</p>
-                <button class="btn-buy">Beli Sekarang</button>
+            <div class="box pemasukan">
+                <h3>Pemasukan Bulan Ini</h3>
+                <p id="totalPemasukan">Rp 0</p>
             </div>
 
-            <!-- KARTU PRODUK 3 -->
-            <div class="product-card">
-                <img src="sabuk.jpg" alt="Produk 3">
-                <h3>Sabuk</h3>
-                <p class="price">Rp 25.000</p>
-                <button class="btn-buy">Beli Sekarang</button>
+            <div class="box pengeluaran">
+                <h3>Pengeluaran Bulan Ini</h3>
+                <p id="totalPengeluaran">Rp 0</p>
             </div>
         </div>
+    </section>
+
+    <!-- TRANSAKSI -->
+    <section id="transaksi" class="form-section">
+        <h2 class="section-title">Catat Transaksi</h2>
+
+        <form id="transaksiForm" class="form">
+            <input type="text" id="namaTransaksi" placeholder="Nama transaksi…" required>
+            <input type="number" id="jumlahTransaksi" placeholder="Jumlah (Rp)..." required>
+            
+            <select id="jenisTransaksi">
+                <option value="pemasukan">Pemasukan</option>
+                <option value="pengeluaran">Pengeluaran</option>
+            </select>
+
+            <button type="submit" class="btn-primary">Tambah</button>
+        </form>
+
+        <h3 class="list-title">Daftar Transaksi</h3>
+        <ul id="listTransaksi" class="list"></ul>
+    </section>
+
+    <!-- BUDGETING -->
+    <section id="budgeting" class="form-section">
+        <h2 class="section-title">Budgeting</h2>
+
+        <form id="budgetForm" class="form">
+            <input type="text" id="namaBudget" placeholder="Nama budget…" required>
+            <input type="number" id="jumlahBudget" placeholder="Nominal (Rp)…" required>
+            <button type="submit" class="btn-primary">Simpan Budget</button>
+        </form>
+
+        <h3 class="list-title">Daftar Budget</h3>
+        <ul id="listBudget" class="list"></ul>
+    </section>
+
+    <!-- NABUNG / SAVING GOALS -->
+    <section id="nabung" class="form-section">
+        <h2 class="section-title">Target Nabung</h2>
+
+        <form id="nabungForm" class="form">
+            <input type="text" id="namaTabungan" placeholder="Nama target…" required>
+            <input type="number" id="jumlahTarget" placeholder="Target (Rp)…" required>
+            <button type="submit" class="btn-primary">Tambah Target</button>
+        </form>
+
+        <h3 class="list-title">Daftar Target Nabung</h3>
+        <ul id="listNabung" class="list"></ul>
     </section>
 
     <!-- FOOTER -->
-    <footer id="kontak">
-        <h3>Hubungi Kami</h3>
-        <p>WhatsApp: 08xxxxxxx</p>
-        <p>Instagram: @tokoku</p>
-        <p>&copy; 2025 TokoKu</p>
+    <footer>
+        <p>&copy; 2025 FinKu – Aplikasi Keuangan</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
